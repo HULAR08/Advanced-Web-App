@@ -1,38 +1,27 @@
 
+
 <template>
-  <div>
-    <h1>Temperature Converter</h1>
-
-    <div>
-      <label for="celsius">Celsius:</label>
-      <input type="number" id="celsius" v-model="celsius" @input="convertToFahrenheit">
-    </div>
-
-    <div>
-      <label for="fahrenheit">Fahrenheit:</label>
-      <input type="number" id="fahrenheit" v-model="fahrenheit" @input="convertToCelsius">
-    </div>
+  <div id="app">
+    <BaseCondition :showComponent="true" />
+    <BaseLoop />
   </div>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      celsius: 0,
-      fahrenheit: 32,
-    };
-  },
-  methods: {
-    convertToFahrenheit() {
-     
-      this.fahrenheit = this.celsius * 9/5 + 32;
-    },
-    convertToCelsius() {
+import BaseCondition from './components/basecondition.vue';
+import BaseLoop from './components/baseloop.vue';
 
-      this.celsius = (this.fahrenheit - 32) * 5/9;
-    },
+export default {
+  components: {
+    BaseCondition,
+    BaseLoop,
   },
 };
 </script>
 
+<style>
+body {
+  margin: 0;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+</style>
